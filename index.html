@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Форма обратной связи</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
@@ -43,20 +43,16 @@
             </div>
           </div>
 
-          <div class="button-container">
-            <button type="submit" class="submit-btn">Отправить</button>
-          </div>
+          <button type="submit" class="submit-btn">Отправить</button>
         </form>
 
         <div id="successMessage" class="success-message" hidden>
-          <div class="success-content">
-            <p>Спасибо! Ваше сообщение успешно отправлено.</p>
-            <button id="backButton" class="back-btn">Вернуться</button>
-          </div>
+          <p>Спасибо! Ваше сообщение успешно отправлено.</p>
+          <button id="backButton" class="back-btn">Вернуться</button>
         </div>
       </main>
     </div>
 
-    <script type="module" src="modules/form.js"></script>
+    <script type="module" src="modules/main.js"></script>
   </body>
 </html>

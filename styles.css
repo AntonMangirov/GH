@@ -61,6 +61,8 @@ body {
   border-radius: var(--border-radius);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-grid {
@@ -79,7 +81,6 @@ body {
   }
 }
 
-/* Группы полей */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -91,7 +92,6 @@ label {
   color: var(--text-color);
 }
 
-/* Поля ввода */
 input,
 textarea {
   width: 100%;
@@ -113,7 +113,6 @@ textarea {
   min-height: 120px;
 }
 
-/* Состояния полей */
 input:focus,
 textarea:focus {
   outline: none;
@@ -122,7 +121,6 @@ textarea:focus {
   background-color: var(--input-focus-bg);
 }
 
-/* Валидация */
 .error-message {
   color: var(--error-color);
   font-size: 14px;
@@ -145,50 +143,42 @@ textarea:focus {
   border-color: var(--border-color);
 }
 
-/* Кнопки */
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: var(--gap);
-}
-
-.submit-btn,
-.back-btn {
+.submit-btn {
   padding: 12px 24px;
   border-radius: var(--border-radius);
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s;
-}
-
-.submit-btn {
   background-color: var(--primary-color);
   color: var(--background-color);
   border: none;
+  align-self: flex-end;
+  margin-top: var(--gap);
 }
 
 .submit-btn:hover {
   background-color: #3367d6;
 }
 
-/* Сообщение об успехе */
 .success-message {
   background-color: var(--success-color);
   color: var(--background-color);
   padding: 32px;
   border-radius: var(--border-radius);
   width: 100%;
-  text-align: center;
-}
-
-.success-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  text-align: center;
 }
 
 .back-btn {
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
   background-color: var(--background-color);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -199,7 +189,6 @@ textarea:focus {
   color: var(--background-color);
 }
 
-/* Адаптивность */
 @media (max-width: 600px) {
   .feedback-form {
     padding: 24px 16px;
