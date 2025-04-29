@@ -183,7 +183,6 @@ textarea:focus {
   color: var(--background-color);
 }
 
-/* Мобильная версия по умолчанию, десктоп через min-width */
 @media (min-width: 600px) {
   .feedback-form {
     padding: 32px;
