@@ -1,9 +1,6 @@
-import { validation } from "./validation.js";
-import {
-  displayFormErrors,
-  resetFormView,
-  toggleViews,
-} from "./dom-helpers.js";
+import validation from "./validation.js";
+import formUtils from "./form-utils.js";
+import domHelpers from "./dom-helpers.js";
 
 export default function formFactory(ids) {
   const form = document.getElementById(ids.formId);
@@ -19,41 +16,15 @@ export default function formFactory(ids) {
 
   const getFormFields = () => form.elements;
 
-  const getFormData = () => ({
-    name: { value: form.elements.name.value, type: "text", required: true },
-    email: { value: form.elements.email.value, type: "email", required: true },
-    message: {
-      value: form.elements.message.value,
-      type: "text",
-      required: true,
-    },
-  });
-
-  const createFieldHandler = (field) => {
-    if (!form.classList.contains("validated")) return;
-
-    const errorElement = getErrorElement(field);
-    const validation = validateFieldValue(
-      field.value,
-      field.type,
-      field.required
-    );
-
-    if (validation.isValid) {
-      errorElement.textContent = "";
-      field.classList.remove("invalid");
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     form.classList.add("validated");
 
-    const formData = getFormData();
-    const validationResult = validation(formData);
+    const formData = formUtils.getFormData(getFormFields());
+    const validationResult = validation.validateForm(formData);
 
     if (!validationResult.isValid) {
-      displayFormErrors(
+      domHelpers.displayFormErrors(
         validationResult.errors,
         getFormFields(),
         getErrorElement
@@ -62,8 +33,8 @@ export default function formFactory(ids) {
     }
 
     console.log("Форма отправлена:", formData);
-    resetFormView(form, getFormFields(), getErrorElement);
-    toggleViews(form, successMessage, false);
+    domHelpers.resetFormView(form, getFormFields(), getErrorElement);
+    domHelpers.toggleViews(form, successMessage, false);
   };
 
   for (const field of Object.values(getFormFields())) {
@@ -71,15 +42,27 @@ export default function formFactory(ids) {
       field instanceof HTMLInputElement ||
       field instanceof HTMLTextAreaElement
     ) {
-      field.addEventListener("input", () => createFieldHandler(field));
-      field.addEventListener("blur", () => createFieldHandler(field));
+      field.addEventListener("input", () =>
+        formUtils.createFieldHandler(
+          field,
+          getErrorElement,
+          form.classList.contains("validated")
+        )
+      );
+      field.addEventListener("blur", () =>
+        formUtils.createFieldHandler(
+          field,
+          getErrorElement,
+          form.classList.contains("validated")
+        )
+      );
     }
   }
 
-  toggleViews(form, successMessage, true);
+  domHelpers.toggleViews(form, successMessage, true);
 
   form.addEventListener("submit", handleSubmit);
   backButton.addEventListener("click", () => {
-    toggleViews(form, successMessage, true);
+    domHelpers.toggleViews(form, successMessage, true);
   });
 }

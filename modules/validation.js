@@ -1,4 +1,4 @@
-export const validateFieldValue = (value, type, isRequired) => {
+const validateFieldValue = (value, type, isRequired) => {
   if (isRequired && !value.trim()) {
     return { isValid: false, error: "Это поле обязательно для заполнения" };
   }
@@ -10,14 +10,11 @@ export const validateFieldValue = (value, type, isRequired) => {
   return { isValid: true, error: "" };
 };
 
-export const validation = (formData) => {
+const validateForm = (formData) => {
   const errors = {};
   let isValid = true;
 
-  for (const entry of Object.entries(formData)) {
-    const fieldName = entry[0];
-    const field = entry[1];
-
+  for (const [fieldName, field] of Object.entries(formData)) {
     const validationResult = validateFieldValue(
       field.value,
       field.type,
@@ -30,4 +27,9 @@ export const validation = (formData) => {
   }
 
   return { isValid, errors };
+};
+
+export default {
+  validateFieldValue,
+  validateForm,
 };
