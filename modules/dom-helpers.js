@@ -1,4 +1,4 @@
-export const displayFormErrors = (errors, fields, getErrorElement) => {
+const displayFormErrors = (errors, fields, getErrorElement) => {
   for (const [fieldName, error] of Object.entries(errors)) {
     const field = fields[fieldName];
     const errorElement = getErrorElement(field);
@@ -9,7 +9,7 @@ export const displayFormErrors = (errors, fields, getErrorElement) => {
   }
 };
 
-export const resetFormView = (form, fields, getErrorElement) => {
+const resetFormView = (form, fields, getErrorElement) => {
   form.reset();
   form.classList.remove("validated");
 
@@ -20,7 +20,13 @@ export const resetFormView = (form, fields, getErrorElement) => {
   }
 };
 
-export const toggleViews = (form, successMessage, showForm) => {
+const toggleViews = (form, successMessage, showForm) => {
   form.style.display = showForm ? "flex" : "none";
   successMessage.style.display = showForm ? "none" : "flex";
+};
+
+export default {
+  displayFormErrors,
+  resetFormView,
+  toggleViews,
 };
