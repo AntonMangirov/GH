@@ -5,7 +5,11 @@ import {
   toggleViews,
 } from "./dom-helpers.js";
 
-export const formFactory = ({ formId, successMessageId, backButtonId }) => {
+export default function formFactory({
+  formId,
+  successMessageId,
+  backButtonId,
+}) {
   const form = document.getElementById(formId);
   const successMessage = document.getElementById(successMessageId);
   const backButton = document.getElementById(backButtonId);
@@ -78,4 +82,4 @@ export const formFactory = ({ formId, successMessageId, backButtonId }) => {
   backButton.addEventListener("click", () => {
     toggleViews(form, successMessage, true);
   });
-};
+}

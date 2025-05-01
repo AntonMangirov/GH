@@ -1,4 +1,4 @@
-import { formFactory } from "./form-factory.js";
+import formFactory from "./form-factory.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   formFactory({
