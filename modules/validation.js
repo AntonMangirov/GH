@@ -10,7 +10,7 @@ export const validateFieldValue = (value, type, isRequired) => {
   return { isValid: true, error: "" };
 };
 
-export const validateFormData = (formData) => {
+export const validation = (formData) => {
   const errors = {};
   let isValid = true;
 

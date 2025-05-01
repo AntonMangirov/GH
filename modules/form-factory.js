@@ -1,15 +1,11 @@
-import { validateFormData } from "./validation.js";
+import { validation } from "./validation.js";
 import {
   displayFormErrors,
   resetFormView,
   toggleViews,
 } from "./dom-helpers.js";
 
-export const createFeedbackForm = ({
-  formId,
-  successMessageId,
-  backButtonId,
-}) => {
+export const formFactory = ({ formId, successMessageId, backButtonId }) => {
   const form = document.getElementById(formId);
   const successMessage = document.getElementById(successMessageId);
   const backButton = document.getElementById(backButtonId);
@@ -54,7 +50,7 @@ export const createFeedbackForm = ({
     form.classList.add("validated");
 
     const formData = getFormData();
-    const { isValid, errors } = validateFormData(formData);
+    const { isValid, errors } = validation(formData);
 
     if (!isValid) {
       displayFormErrors(errors, getFormFields(), getErrorElement);

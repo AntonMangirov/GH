@@ -1,7 +1,7 @@
-import { createFeedbackForm } from "./form-factory.js";
+import { formFactory } from "./form-factory.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  createFeedbackForm({
+  formFactory({
     formId: "feedbackForm",
     successMessageId: "successMessage",
     backButtonId: "backButton",
