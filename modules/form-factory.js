@@ -5,14 +5,10 @@ import {
   toggleViews,
 } from "./dom-helpers.js";
 
-export default function formFactory({
-  formId,
-  successMessageId,
-  backButtonId,
-}) {
-  const form = document.getElementById(formId);
-  const successMessage = document.getElementById(successMessageId);
-  const backButton = document.getElementById(backButtonId);
+export default function formFactory(ids) {
+  const form = document.getElementById(ids.formId);
+  const successMessage = document.getElementById(ids.successMessageId);
+  const backButton = document.getElementById(ids.backButtonId);
 
   const getErrorElement = (field) => field.nextElementSibling;
 
@@ -54,10 +50,14 @@ export default function formFactory({
     form.classList.add("validated");
 
     const formData = getFormData();
-    const { isValid, errors } = validation(formData);
+    const validationResult = validation(formData);
 
-    if (!isValid) {
-      displayFormErrors(errors, getFormFields(), getErrorElement);
+    if (!validationResult.isValid) {
+      displayFormErrors(
+        validationResult.errors,
+        getFormFields(),
+        getErrorElement
+      );
       return;
     }
 

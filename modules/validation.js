@@ -14,14 +14,17 @@ export const validation = (formData) => {
   const errors = {};
   let isValid = true;
 
-  for (const [fieldName, field] of Object.entries(formData)) {
-    const validation = validateFieldValue(
+  for (const entry of Object.entries(formData)) {
+    const fieldName = entry[0];
+    const field = entry[1];
+
+    const validationResult = validateFieldValue(
       field.value,
       field.type,
       field.required
     );
-    if (!validation.isValid) {
-      errors[fieldName] = validation.error;
+    if (!validationResult.isValid) {
+      errors[fieldName] = validationResult.error;
       isValid = false;
     }
   }
