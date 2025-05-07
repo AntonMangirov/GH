@@ -1,0 +1,15 @@
+:root {
+    --primary: #4285f4;
+    --error: #d32f2f;
+    --success: #388e3c;
+    --text: #202124;
+    --border: #dadce0;
+    --white: #ffffff;
+    --bg: #f5f5f5;
+  
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --radius: 8px;
+    --input-height: 48px;
+  }

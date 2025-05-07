@@ -1,0 +1,19 @@
+.button {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .button[type="submit"] {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+  }
+  
+  .button:not([type="submit"]) {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  }
