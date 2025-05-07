@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Header from './components/Header/Header';
+import Form from './components/Form/Form';
+import Input from './components/Input/Input';
+import Textarea from './components/Textarea/Textarea';
+import Button from './components/Button/Button';
+import SuccessMessage from './components/SuccessMessage/SuccessMessage';
+import './styles/variables.css';
+import './styles/reset.css';
+import './styles/fonts.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+class App extends React.Component {
+  render() {
+    return (
+      <div className="app-container">
+        <Header />
+        
+        <main className="main-content">
+          <Form>
+            <Input type="text" id="name" label="Имя" />
+            <Input type="email" id="email" label="Email" />
+            <Textarea id="message" label="Сообщение" />
+            <Button type="submit">Отправить</Button>
+          </Form>
+          
+          <SuccessMessage />
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  }
 }
 
-export default App
+export default App;

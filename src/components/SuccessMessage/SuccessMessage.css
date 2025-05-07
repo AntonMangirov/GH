@@ -1,0 +1,7 @@
+.success-message {
+    background-color: var(--success);
+    color: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    text-align: center;
+  }
