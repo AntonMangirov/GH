@@ -1,7 +1,7 @@
 import React from "react";
 
-import "../../styles/variables.css";
-import "../../styles/fonts.css";
+import "./variables.css";
+import "./fonts.css";
 import AppLayout from "./AppLayout";
 import FormPage from "../FormPage";
 
