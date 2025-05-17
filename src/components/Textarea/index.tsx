@@ -1,17 +1,26 @@
 import "./Textarea.css";
 
-interface Props {
+const Textarea = ({
+  id,
+  label,
+  value,
+  onChange,
+}: {
   id: string;
   label: string;
-}
-
-const Textarea = ({ id, label }: Props) => {
-  return (
-    <div className="textarea-group">
-      <label htmlFor={id}>{label}</label>
-      <textarea id={id} className="textarea" rows={5} />
-    </div>
-  );
-};
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}) => (
+  <div className="textarea-group">
+    <label htmlFor={id}>{label}</label>
+    <textarea
+      id={id}
+      value={value}
+      onChange={onChange}
+      className="textarea"
+      rows={5}
+    />
+  </div>
+);
 
 export default Textarea;
