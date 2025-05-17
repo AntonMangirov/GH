@@ -1,8 +1,22 @@
-const FormContent = () => {
+import Input from "../../Input";
+import Textarea from "../../Textarea";
+import Button from "../../Button";
+import { FormData } from "../../Form/FormData";
+
+interface Props {
+  onSubmit: () => void;
+}
+
+const FormContent = ({ onSubmit }: Props) => {
   const { values, nameChange, emailChange, messageChange } = FormData();
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit();
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Input
         type="text"
         id="name"
@@ -27,3 +41,5 @@ const FormContent = () => {
     </form>
   );
 };
+
+export default FormContent;
