@@ -1,19 +1,15 @@
-import Form from "../Form/Form";
-import Input from "../Input/Input";
-import Textarea from "../Textarea/Textarea";
-import Button from "../Button/Button";
-import SuccessMessage from "../SuccessMessage/SuccessMessage";
+import { useState } from "react";
+import FormContent from "./FormContent";
+import SuccessMessage from "./SuccessMessage";
 
-export default function FormPage() {
-  return (
-    <>
-      <Form>
-        <Input type="text" id="name" label="Имя" />
-        <Input type="email" id="email" label="Email" />
-        <Textarea id="message" label="Сообщение" />
-        <Button type="submit">Отправить</Button>
-      </Form>
-      <SuccessMessage />
-    </>
+const FormPage = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  return isSubmitted ? (
+    <SuccessMessage />
+  ) : (
+    <FormContent onSubmit={() => setIsSubmitted(true)} />
   );
-}
+};
+
+export default FormPage;

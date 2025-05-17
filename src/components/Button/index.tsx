@@ -2,6 +2,7 @@ import "./Button.css";
 
 interface Props {
   type?: "button" | "submit";
+  onClick?: () => void;
   children: React.ReactNode;
 }
 
