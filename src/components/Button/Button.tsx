@@ -1,17 +1,16 @@
-import React from 'react';
-import './Button.css';
+import "./Button.css";
 
-class Button extends React.Component<{ 
-  type?: 'button' | 'submit';
+interface Props {
+  type?: "button" | "submit";
   children: React.ReactNode;
-}> {
-  render() {
-    return (
-      <button type={this.props.type || 'button'} className="button">
-        {this.props.children}
-      </button>
-    );
-  }
 }
+
+const Button = ({ type = "button", children }: Props) => {
+  return (
+    <button type={type} className="button">
+      {children}
+    </button>
+  );
+};
 
 export default Button;

@@ -1,22 +1,17 @@
-import React from 'react';
-import './Textarea.css';
+import "./Textarea.css";
 
-class Textarea extends React.Component<{
+interface Props {
   id: string;
   label: string;
-}> {
-  render() {
-    return (
-      <div className="textarea-group">
-        <label htmlFor={this.props.id}>{this.props.label}</label>
-        <textarea
-          id={this.props.id}
-          className="textarea"
-          rows={5}
-        />
-      </div>
-    );
-  }
 }
+
+const Textarea = ({ id, label }: Props) => {
+  return (
+    <div className="textarea-group">
+      <label htmlFor={id}>{label}</label>
+      <textarea id={id} className="textarea" rows={5} />
+    </div>
+  );
+};
 
 export default Textarea;
