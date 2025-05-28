@@ -2,17 +2,21 @@ import "./index.css";
 
 interface Props {
   label: string;
-  onChange: (newValue: string) => void;
+  name: string;
+  onChange: (value: string) => void;
+  error?: string;
 }
 
-const Input = ({ label, onChange }: Props) => (
+const Input = ({ label, name, error }: Props) => (
   <label className="input-group">
     {label}
     <input
       type="text"
-      onChange={(e) => onChange(e.currentTarget.value)}
-      className="input"
+      name={name}
+      onChange={(e) => onChange(e.target.value)}
+      className={`input ${error ? "invalid" : ""}`}
     />
+    {error && <span className="error-text">{error}</span>}
   </label>
 );
 

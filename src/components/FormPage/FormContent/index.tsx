@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import validation from "../../../utils/validation";
 import Input from "../../Input";
 import Textarea from "../../Textarea";
 import Button from "../../Button";
@@ -13,18 +13,42 @@ const FormContent = ({ onSubmit }: Props) => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const isValidated = validate({ name, email, message });
-    if (isValidated) onSubmit();
+
+    const formData = {
+      name: { value: name, type: "text", required: true },
+      email: { value: email, type: "email", required: true },
+      message: { value: message, type: "text", required: true },
+    };
+
+    const result = validation.validateForm(formData);
+
+    if (!result.isValid) {
+      setErrors(result.errors);
+      return;
+    }
+
+    onSubmit();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Input label="Имя" onChange={setName} />
-      <Input label="Email" onChange={setEmail} />
-      <Textarea label="Сообщение" onChange={setMessage} />
+    <form onSubmit={handleSubmit} className="form">
+      <Input label="Имя" value={name} onChange={setName} error={errors.name} />
+      <Input
+        label="Email"
+        name="email"
+        onChange={setEmail}
+        error={errors.email}
+      />
+      <Textarea
+        label="Сообщение"
+        name="message"
+        onChange={setMessage}
+        error={errors.message}
+      />
       <Button type="submit">Отправить</Button>
     </form>
   );

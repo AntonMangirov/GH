@@ -1,19 +1,22 @@
 import "./index.css";
 
-const Textarea = ({
-  label,
-  onChange,
-}: {
+interface Props {
   label: string;
-  onChange: (newValue: string) => void;
-}) => (
+  name: string;
+  onChange: (value: string) => void;
+  error?: string;
+}
+
+const Textarea = ({ label, name, error }: Props) => (
   <label className="textarea-group">
     {label}
     <textarea
-      onChange={(e) => onChange(e.currentTarget.value)}
-      className="textarea"
+      name={name}
+      onChange={(e) => onChange(e.target.value)}
+      className={`textarea ${error ? "invalid" : ""}`}
       rows={5}
     />
+    {error && <span className="error-text">{error}</span>}
   </label>
 );
 
