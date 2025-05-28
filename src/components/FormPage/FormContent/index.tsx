@@ -3,6 +3,7 @@ import { useState } from "react";
 import Input from "../../Input";
 import Textarea from "../../Textarea";
 import Button from "../../Button";
+import "./index.css";
 
 interface Props {
   onSubmit: () => void;
