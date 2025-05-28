@@ -36,7 +36,6 @@ const FormContent = ({ onSubmit }: Props) => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <Input label="Имя" value={name} onChange={setName} error={errors.name} />
       <Input
         label="Email"
         name="email"
