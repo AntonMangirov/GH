@@ -1,26 +1,20 @@
-import "./Textarea.css";
+import "./index.css";
 
 const Textarea = ({
-  id,
   label,
-  value,
   onChange,
 }: {
-  id: string;
   label: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (newValue: string) => void;
 }) => (
-  <div className="textarea-group">
-    <label htmlFor={id}>{label}</label>
+  <label className="textarea-group">
+    {label}
     <textarea
-      id={id}
-      value={value}
-      onChange={onChange}
+      onChange={(e) => onChange(e.currentTarget.value)}
       className="textarea"
       rows={5}
     />
-  </div>
+  </label>
 );
 
 export default Textarea;

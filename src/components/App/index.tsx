@@ -1,5 +1,4 @@
-import "./variables.css";
-import "./fonts.css";
+import "./index.css";
 import AppLayout from "./AppLayout";
 import FormPage from "../FormPage";
 

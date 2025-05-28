@@ -1,42 +1,29 @@
+import { useState } from "react";
+
 import Input from "../../Input";
 import Textarea from "../../Textarea";
 import Button from "../../Button";
-import { FormData } from "../../Form/FormData";
 
 interface Props {
   onSubmit: () => void;
 }
 
 const FormContent = ({ onSubmit }: Props) => {
-  const { values, nameChange, emailChange, messageChange } = FormData();
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit();
+    const isValidated = validate({ name, email, message });
+    if (isValidated) onSubmit();
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        id="name"
-        label="Имя"
-        value={values.name}
-        onChange={nameChange}
-      />
-      <Input
-        type="email"
-        id="email"
-        label="Email"
-        value={values.email}
-        onChange={emailChange}
-      />
-      <Textarea
-        id="message"
-        label="Сообщение"
-        value={values.message}
-        onChange={messageChange}
-      />
+      <Input label="Имя" onChange={setName} />
+      <Input label="Email" onChange={setEmail} />
+      <Textarea label="Сообщение" onChange={setMessage} />
       <Button type="submit">Отправить</Button>
     </form>
   );

@@ -1,25 +1,19 @@
-import React from "react";
-import "./Input.css";
+import "./index.css";
 
 interface Props {
-  type: string;
-  id: string;
-  lable: string;
-  valaue: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+  onChange: (newValue: string) => void;
 }
 
-const Input = ({ label, value, onChange, type = "text", id }: Props) => (
-  <div className="input-group">
-    <label>{label}</label>
+const Input = ({ label, onChange }: Props) => (
+  <label className="input-group">
+    {label}
     <input
-      type={type}
-      id={id}
-      value={value}
-      onChange={onChange}
+      type="text"
+      onChange={(e) => onChange(e.currentTarget.value)}
       className="input"
     />
-  </div>
+  </label>
 );
 
 export default Input;

@@ -6,7 +6,7 @@ const FormPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   return isSubmitted ? (
-    <SuccessMessage />
+    <SuccessMessage onClick={() => setIsSubmitted(false)} />
   ) : (
     <FormContent onSubmit={() => setIsSubmitted(true)} />
   );

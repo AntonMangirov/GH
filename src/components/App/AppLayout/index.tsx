@@ -1,5 +1,5 @@
 import Header from "../../Header";
-import "./AppLayout.css";
+import "./index.css";
 
 interface AppLayoutProps {
   children: React.ReactNode;
