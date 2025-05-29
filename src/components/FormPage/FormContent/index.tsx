@@ -24,6 +24,8 @@ const FormContent = ({ onSubmit }: Props) => {
       message: { value: message, type: "text", required: true },
     };
 
+    console.log("Form data:", { name, email, message });
+
     const result = validateForm(formData);
 
     if (!result.isValid) {
