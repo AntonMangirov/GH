@@ -24,7 +24,7 @@ const FormContent = ({ onSubmit }: Props) => {
       message: { value: message, type: "text", required: true },
     };
 
-    const result = validation.validateForm(formData);
+    const result = validation.validateForm(FormData);
 
     if (!result.isValid) {
       setErrors(result.errors);
@@ -36,6 +36,7 @@ const FormContent = ({ onSubmit }: Props) => {
 
   return (
     <form onSubmit={handleSubmit} className="form">
+      <Input label="Имя" name="name" onChange={setName} error={errors.name} />
       <Input
         label="Email"
         name="email"

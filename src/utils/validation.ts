@@ -8,7 +8,12 @@ type FieldConfig = {
   type: "text" | "email";
   required: boolean;
 };
-type FormData = Record<string, FieldConfig>;
+
+type FormData = {
+  name: FieldConfig;
+  email: FieldConfig;
+  message: FieldConfig;
+};
 
 const validateFieldValue = (
   value: string,
