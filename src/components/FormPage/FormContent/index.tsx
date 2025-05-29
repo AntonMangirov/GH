@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { validateForm } from "../../../utils/validation";
+import validation from "../../../utils/formValidator";
 import Input from "../../Input";
 import Textarea from "../../Textarea";
 import Button from "../../Button";
@@ -26,7 +26,7 @@ const FormContent = ({ onSubmit }: Props) => {
 
     console.log("Form data:", { name, email, message });
 
-    const result = validateForm(formData);
+    const result = validation.validateForm(formData);
 
     if (!result.isValid) {
       setErrors(result.errors);
