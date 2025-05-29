@@ -6,9 +6,9 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Button = ({ type = "button", children }: Props) => {
+const Button = ({ type = "button", onClick, children }: Props) => {
   return (
-    <button type={type} className="button">
+    <button type={type} onClick={onClick} className="button">
       {children}
     </button>
   );
