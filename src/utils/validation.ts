@@ -9,18 +9,14 @@ type FieldConfig = {
   required: boolean;
 };
 
-type FormData = {
-  name: FieldConfig;
-  email: FieldConfig;
-  message: FieldConfig;
-};
+type FormData = Record<string, FieldConfig>;
 
-const validateFieldValue = (
+export const validateFieldValue = (
   value: string,
   type: "text" | "email",
   isRequired: boolean
 ): ValidationResult => {
-  if (isRequired && !value.trim()) {
+  if (isRequired && (!value || value.trim() === "")) {
     return { isValid: false, error: "Это поле обязательно для заполнения" };
   }
 
@@ -31,7 +27,7 @@ const validateFieldValue = (
   return { isValid: true, error: "" };
 };
 
-const validateForm = (formData: FormData) => {
+export const validateForm = (formData: FormData) => {
   const errors: Record<string, string> = {};
   let isValid = true;
 

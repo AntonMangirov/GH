@@ -1,5 +1,5 @@
 import { useState } from "react";
-import validation from "../../../utils/validation";
+import { validateForm } from "../../../utils/validation";
 import Input from "../../Input";
 import Textarea from "../../Textarea";
 import Button from "../../Button";
@@ -24,28 +24,37 @@ const FormContent = ({ onSubmit }: Props) => {
       message: { value: message, type: "text", required: true },
     };
 
-    const result = validation.validateForm(FormData);
+    const result = validateForm(formData);
 
     if (!result.isValid) {
       setErrors(result.errors);
       return;
     }
 
+    setErrors({});
     onSubmit();
   };
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <Input label="Имя" name="name" onChange={setName} error={errors.name} />
+      <Input
+        label="Имя"
+        name="name"
+        value={name}
+        onChange={setName}
+        error={errors.name}
+      />
       <Input
         label="Email"
         name="email"
+        value={email}
         onChange={setEmail}
         error={errors.email}
       />
       <Textarea
         label="Сообщение"
         name="message"
+        value={message}
         onChange={setMessage}
         error={errors.message}
       />
