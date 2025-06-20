@@ -1,0 +1,20 @@
+.home {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.home-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.home-button:hover {
+  background-color: #2980b9;
+}
