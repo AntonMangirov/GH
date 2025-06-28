@@ -5,7 +5,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <section className="home">
       <p>
         Умный анализ ваших доходов и расходов. Получайте персонализированные
         рекомендации по оптимизации бюджета с помощью искусственного интеллекта.
@@ -20,6 +20,6 @@ export const Home = () => {
       <button className="home-button" onClick={() => navigate("")}>
         Начать анализ
       </button>
-    </div>
+    </section>
   );
 };

@@ -6,13 +6,12 @@
 
 .home-button {
   background-color: #3498db;
-  color: white;
+  color: #fff;
   border: none;
   padding: 12px 24px;
   border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1rem;
+  font-size: 16px;
+  margin-top: 16px;
 }
 
 .home-button:hover {
