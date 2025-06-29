@@ -1,5 +1,5 @@
 import Header from "../../Header";
-import "./index.css";
+import classes from "./index.module.css";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -7,9 +7,9 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <div className="app">
+    <div className={classes.app}>
       <Header />
-      <main className="content">{children}</main>
+      <main className={classes.content}>{children}</main>
     </div>
   );
 };
