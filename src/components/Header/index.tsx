@@ -1,9 +1,13 @@
-import "./index.css";
+import classes from "./index.module.css";
 
 export const Header = () => {
   return (
-    <header className="header">
-      <h1 className="header__title">Финансовый помощник с использованием ИИ</h1>
+    <header className={classes.header}>
+      <h1 className={classes.header__title}>
+        Финансовый помощник с использованием ИИ
+      </h1>
     </header>
   );
 };
+
+export default Header;
