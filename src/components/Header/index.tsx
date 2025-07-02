@@ -1,6 +1,6 @@
 import classes from "./index.module.css";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className={classes.header}>
       <h1 className={classes.header__title}>

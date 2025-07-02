@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router";
-import { Home } from "./components/Home";
-import { Form } from "./components/Form";
+import Home from "./components/Home";
+import Form from "./components/Form";
 import AppLayout from "./components/App/AppLayout";
 
-export const Routers = () => {
+const Routers = () => {
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
@@ -13,3 +13,5 @@ export const Routers = () => {
     </Routes>
   );
 };
+
+export default Routers;

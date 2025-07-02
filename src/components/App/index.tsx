@@ -1,4 +1,4 @@
-import { Routers } from "../../routes";
+import Routers from "../../routes";
 
 const App = () => {
   return <Routers />;

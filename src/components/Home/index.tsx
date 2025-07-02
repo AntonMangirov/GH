@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import classes from "./index.module.css";
 
-export const Home = () => {
+const Home = () => {
   return (
     <section className={classes.home}>
       <p>
@@ -16,8 +16,10 @@ export const Home = () => {
       </ul>
 
       <Link to="/form" className={classes.button}>
-        Начать анализ
+        Начать планирование
       </Link>
     </section>
   );
 };
+
+export default Home;
