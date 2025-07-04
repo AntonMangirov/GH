@@ -1,12 +1,21 @@
-import classes from "./index.module.css";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 const Header = () => {
   return (
-    <header className={classes.header}>
-      <h1 className={classes.header__title}>
-        Финансовый помощник с использованием ИИ
-      </h1>
-    </header>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "rgba(0, 0, 0, 0.85)",
+      }}
+    >
+      <Toolbar>
+        <Typography sx={{ fontSize: "24px", fontWeight: 500 }}>
+          Финансовый помощник с использованием ИИ
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 };
 
