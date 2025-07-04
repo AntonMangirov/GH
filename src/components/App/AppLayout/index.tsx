@@ -1,5 +1,5 @@
 import Header from "../../Header";
-import classes from "./index.module.css";
+import Box from "@mui/material/Box";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -7,10 +7,18 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <div className={classes.app}>
+    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Header />
-      <main className={classes.content}>{children}</main>
-    </div>
+      <Box
+        sx={{
+          flexGrow: 1,
+          paddingTop: "96px",
+          backgroundColor: "#f5f5f5",
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
   );
 };
 
