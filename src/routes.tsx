@@ -1,17 +1,14 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes as ReactRouterRoutes } from "react-router";
 import Home from "./components/Home";
 import Form from "./components/Form";
-import AppLayout from "./components/App/AppLayout";
 
-const Routers = () => {
+const Routes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<AppLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/form" element={<Form />} />
-      </Route>
-    </Routes>
+    <ReactRouterRoutes>
+      <Route path="/" element={<Home />} />
+      <Route path="/form" element={<Form />} />
+    </ReactRouterRoutes>
   );
 };
 
-export default Routers;
+export default Routes;

@@ -1,5 +1,5 @@
 const Form = () => {
-  return <main></main>;
+  return <section></section>;
 };
 
 export default Form;

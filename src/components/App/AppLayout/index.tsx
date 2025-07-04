@@ -1,14 +1,15 @@
-import { Outlet } from "react-router";
 import Header from "../../Header";
 import classes from "./index.module.css";
 
-const AppLayout = () => {
+interface AppLayoutProps {
+  children: React.ReactNode;
+}
+
+const AppLayout = ({ children }: AppLayoutProps) => {
   return (
     <div className={classes.app}>
       <Header />
-      <main className={classes.content}>
-        <Outlet />
-      </main>
+      <main className={classes.content}>{children}</main>
     </div>
   );
 };
