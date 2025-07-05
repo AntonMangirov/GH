@@ -1,24 +1,33 @@
 import { Link } from "react-router";
-import classes from "./index.module.css";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Button from "@mui/material/Button";
 
 const Home = () => {
   return (
-    <section className={classes.home}>
-      <p>
+    <Box sx={{ maxWidth: 800, margin: "0 auto", lineHeight: 1.6 }}>
+      <Typography variant="body1">
         Умный анализ ваших доходов и расходов. Получайте персонализированные
         рекомендации по оптимизации бюджета с помощью искусственного интеллекта.
-      </p>
+      </Typography>
 
-      <ul>
-        <li>Визуализация финансовых потоков</li>
-        <li>Анализ моделей расходов</li>
-        <li>Рекомендации по экономии</li>
-      </ul>
+      <List>
+        <ListItem>Визуализация финансовых потоков</ListItem>
+        <ListItem>Анализ моделей расходов</ListItem>
+        <ListItem>Рекомендации по экономии</ListItem>
+      </List>
 
-      <Link to="/form" className={classes.button}>
+      <Button
+        component={Link}
+        to="/form"
+        variant="contained"
+        sx={{ marginTop: "16px" }}
+      >
         Начать планирование
-      </Link>
-    </section>
+      </Button>
+    </Box>
   );
 };
 
