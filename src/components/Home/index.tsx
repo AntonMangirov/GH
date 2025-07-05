@@ -1,9 +1,5 @@
 import { Link } from "react-router";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Button from "@mui/material/Button";
+import { Box, Typography, List, ListItem, Button } from "@mui/material";
 
 const Home = () => {
   return (
