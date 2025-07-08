@@ -13,7 +13,6 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         sx={{
           flexGrow: 1,
           paddingTop: "96px",
-          backgroundColor: "#f5f5f5",
         }}
       >
         {children}

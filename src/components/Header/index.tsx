@@ -3,14 +3,9 @@ import { Toolbar, Typography } from "@mui/material";
 
 const Header = () => {
   return (
-    <AppBar
-      position="fixed"
-      sx={{
-        backgroundColor: "rgba(0, 0, 0, 0.85)",
-      }}
-    >
+    <AppBar position="fixed">
       <Toolbar>
-        <Typography sx={{ fontSize: "24px", fontWeight: 500 }}>
+        <Typography variant="h4">
           Финансовый помощник с использованием ИИ
         </Typography>
       </Toolbar>
