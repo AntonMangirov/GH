@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { Box, Typography, List, ListItem, Button } from "@mui/material";
+import { Typography, List, ListItem, Button, Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box sx={{ maxWidth: 800, margin: "0 auto", lineHeight: 1.6 }}>
+    <Container>
       <Typography variant="body1">
         Умный анализ ваших доходов и расходов. Получайте персонализированные
         рекомендации по оптимизации бюджета с помощью искусственного интеллекта.
@@ -23,7 +23,7 @@ const Home = () => {
       >
         Начать планирование
       </Button>
-    </Box>
+    </Container>
   );
 };
 
