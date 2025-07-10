@@ -1,10 +1,10 @@
 import AppLayout from "./AppLayout";
-import { Routers } from "../../routes";
+import Routes from "../../routes";
 
 const App = () => {
   return (
     <AppLayout>
-      <Routers />
+      <Routes />
     </AppLayout>
   );
 };
