@@ -1,23 +1,30 @@
-import { Link } from "react-router-dom";
-import classes from "./index.module.css";
+import { Link } from "react-router";
+import { Typography, List, ListItem, Button, Container } from "@mui/material";
 
-export const Home = () => {
+const Home = () => {
   return (
-    <section className={classes.home}>
-      <p>
+    <Container>
+      <Typography variant="body1">
         Умный анализ ваших доходов и расходов. Получайте персонализированные
         рекомендации по оптимизации бюджета с помощью искусственного интеллекта.
-      </p>
+      </Typography>
 
-      <ul>
-        <li>Визуализация финансовых потоков</li>
-        <li>Анализ моделей расходов</li>
-        <li>Рекомендации по экономии</li>
-      </ul>
+      <List>
+        <ListItem>Визуализация финансовых потоков</ListItem>
+        <ListItem>Анализ моделей расходов</ListItem>
+        <ListItem>Рекомендации по экономии</ListItem>
+      </List>
 
-      <Link to="/form" className={classes.button}>
-        Начать анализ
-      </Link>
-    </section>
+      <Button
+        component={Link}
+        to="/form"
+        variant="contained"
+        sx={{ marginTop: "16px" }}
+      >
+        Начать планирование
+      </Button>
+    </Container>
   );
 };
+
+export default Home;

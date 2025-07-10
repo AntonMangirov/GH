@@ -1,10 +1,14 @@
-import { Route, Routes } from "react-router-dom";
-import { Home } from "./components/Home";
+import { Route, Routes as ReactRouterRoutes } from "react-router";
+import Home from "./components/Home";
+import Form from "./components/Form";
 
-export const Routers = () => {
+const Routes = () => {
   return (
-    <Routes>
+    <ReactRouterRoutes>
       <Route path="/" element={<Home />} />
-    </Routes>
+      <Route path="/form" element={<Form />} />
+    </ReactRouterRoutes>
   );
 };
+
+export default Routes;
