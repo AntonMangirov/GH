@@ -5,11 +5,13 @@ import Purposes from "./components/purposes";
 
 const Form = () => {
   return (
-    <Container>
+    <Container maxWidth="md">
       <Income />
       <Expense />
       <Purposes />
-      <Button variant="contained">Рассчитать план накоплений</Button>
+      <Button variant="contained" size="large">
+        Рассчитать план накоплений
+      </Button>
     </Container>
   );
 };

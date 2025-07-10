@@ -3,7 +3,7 @@ import { Typography, List, ListItem, Link, Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Container>
+    <Container maxWidth="md">
       <Typography variant="body1">
         Умный анализ ваших доходов и расходов. Получайте персонализированные
         рекомендации по оптимизации бюджета с помощью искусственного интеллекта.
