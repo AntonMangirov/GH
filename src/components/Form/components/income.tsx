@@ -11,6 +11,14 @@ const Income = () => {
       setMainIncomeError("Поле обязательно для заполнения");
       return false;
     }
+    if (isNaN(Number(value))) {
+      setMainIncomeError("Должно быть число");
+      return false;
+    }
+    if (Number(value) < 0) {
+      setMainIncomeError("Не может быть отрицательным");
+      return false;
+    }
     setMainIncomeError("");
     return true;
   };
@@ -34,6 +42,7 @@ const Income = () => {
             label="Основной доход"
             placeholder="Зарплата, пенсия"
             variant="outlined"
+            type="number"
             value={mainIncome}
             onChange={handleMainIncomeChange}
             error={!!mainIncomeError}
@@ -47,6 +56,7 @@ const Income = () => {
             label="Дополнительный доход"
             placeholder="Инвестиции, аренда и т.д."
             variant="outlined"
+            type="number"
             value={extraIncome}
             onChange={(e) => setExtraIncome(e.target.value)}
           />
