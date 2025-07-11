@@ -6,6 +6,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import React, { useState } from "react";
+import validate from "../../../Utils/validation";
 
 const Income = () => {
   const [mainIncome, setMainIncome] = useState("");
@@ -13,46 +14,16 @@ const Income = () => {
   const [mainIncomeError, setMainIncomeError] = useState("");
   const [extraIncomeError, setExtraIncomeError] = useState("");
 
-  const validateMainIncome = (value: string) => {
-    if (!value.trim()) {
-      setMainIncomeError("Поле обязательно для заполнения");
-      return false;
-    }
-    if (isNaN(Number(value))) {
-      setMainIncomeError("Должно быть число");
-      return false;
-    }
-    if (Number(value) < 0) {
-      setMainIncomeError("Не может быть отрицательным");
-      return false;
-    }
-    setMainIncomeError("");
-    return true;
-  };
-
-  const validateExtraIncome = (value: string) => {
-    if (isNaN(Number(value))) {
-      setExtraIncomeError("Должно быть число");
-      return false;
-    }
-    if (Number(value) < 0) {
-      setExtraIncomeError("Не может быть отрицательным");
-      return false;
-    }
-    setExtraIncomeError("");
-    return true;
-  };
-
   const handleMainIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setMainIncome(value);
-    validateMainIncome(value);
+    validate(value, setMainIncomeError, true);
   };
 
   const handleExtraIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setExtraIncome(value);
-    validateExtraIncome(value);
+    validate(value, setExtraIncomeError);
   };
 
   return (

@@ -6,6 +6,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import React, { useState } from "react";
+import validate from "../../../Utils/validation";
 
 const Expense = () => {
   const [housing, setHousing] = useState("");
@@ -21,19 +22,6 @@ const Expense = () => {
   const [healthError, setHealthError] = useState("");
   const [entertainmentError, setEntertainmentError] = useState("");
   const [otherError, setOtherError] = useState("");
-
-  const validate = (value: string, setError: (error: string) => void) => {
-    if (isNaN(Number(value))) {
-      setError("Должно быть числом");
-      return false;
-    }
-    if (Number(value) < 0) {
-      setError("Не может быть отрицательным");
-      return false;
-    }
-    setError("");
-    return true;
-  };
 
   const handleHousingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
