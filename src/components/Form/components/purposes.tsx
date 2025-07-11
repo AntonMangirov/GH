@@ -9,8 +9,19 @@ import {
   Grid,
   InputAdornment,
 } from "@mui/material";
+import React, { useState } from "react";
+import validate from "../../../Utils/validation";
 
 const Purposes = () => {
+  const [purpose, setPurpose] = useState("");
+  const [purposeError, setPurposeError] = useState("");
+
+  const handlePurposeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPurpose(value);
+    validate(value, setPurposeError, true);
+  };
+
   return (
     <Paper elevation={5} sx={{ p: 3, mb: 3 }}>
       <Typography variant="h6" color="primary">
@@ -28,6 +39,11 @@ const Purposes = () => {
                 <InputAdornment position="end">{"\u20BD"}</InputAdornment>
               ),
             }}
+            value={purpose}
+            onChange={handlePurposeChange}
+            error={!!purposeError}
+            helperText={purposeError}
+            required
           />
         </Grid>
         <Grid size={6}>
