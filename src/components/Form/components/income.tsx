@@ -5,6 +5,7 @@ const Income = () => {
   const [mainIncome, setMainIncome] = useState("");
   const [extraIncome, setExtraIncome] = useState("");
   const [mainIncomeError, setMainIncomeError] = useState("");
+  const [extraIncomeError, setExtraIncomeError] = useState("");
 
   const validateMainIncome = (value: string) => {
     if (!value.trim()) {
@@ -23,10 +24,29 @@ const Income = () => {
     return true;
   };
 
+  const validateExtraIncome = (value: string) => {
+    if (isNaN(Number(value))) {
+      setExtraIncomeError("Должно быть число");
+      return false;
+    }
+    if (Number(value) < 0) {
+      setExtraIncomeError("Не может быть отрицательным");
+      return false;
+    }
+    setExtraIncomeError("");
+    return true;
+  };
+
   const handleMainIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setMainIncome(value);
     validateMainIncome(value);
+  };
+
+  const handleExtraIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setExtraIncome(value);
+    validateExtraIncome(value);
   };
 
   return (
@@ -42,7 +62,6 @@ const Income = () => {
             label="Основной доход"
             placeholder="Зарплата, пенсия"
             variant="outlined"
-            type="number"
             value={mainIncome}
             onChange={handleMainIncomeChange}
             error={!!mainIncomeError}
@@ -56,9 +75,10 @@ const Income = () => {
             label="Дополнительный доход"
             placeholder="Инвестиции, аренда и т.д."
             variant="outlined"
-            type="number"
             value={extraIncome}
-            onChange={(e) => setExtraIncome(e.target.value)}
+            onChange={handleExtraIncomeChange}
+            error={!!extraIncomeError}
+            helperText={extraIncomeError}
           />
         </Grid>
       </Grid>
