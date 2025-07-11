@@ -86,7 +86,9 @@ const Expense = () => {
             placeholder="Аренда, ипотека, коммунальные"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={housing}
             onChange={handleHousingChange}
@@ -102,7 +104,9 @@ const Expense = () => {
             placeholder="Продукты, рестораны"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={food}
             onChange={handleFoodChange}
@@ -118,7 +122,9 @@ const Expense = () => {
             placeholder="Бензин, общественный транспорт"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={transport}
             onChange={handleTransportChange}
@@ -134,7 +140,9 @@ const Expense = () => {
             placeholder="Медицина, фитнес, аптека"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={health}
             onChange={handleHealthChange}
@@ -150,7 +158,9 @@ const Expense = () => {
             placeholder="Кино, хобби, подписки"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={entertainment}
             onChange={handleEntertainmentChange}
@@ -166,7 +176,9 @@ const Expense = () => {
             placeholder="Одежда, подарки, прочее"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={other}
             onChange={handleOtherChange}
