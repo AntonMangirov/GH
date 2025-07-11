@@ -1,4 +1,10 @@
-import { Paper, Typography, TextField, Grid } from "@mui/material";
+import {
+  Paper,
+  Typography,
+  TextField,
+  Grid,
+  InputAdornment,
+} from "@mui/material";
 import React, { useState } from "react";
 
 const Income = () => {
@@ -62,6 +68,9 @@ const Income = () => {
             label="Основной доход"
             placeholder="Зарплата, пенсия"
             variant="outlined"
+            InputProps={{
+              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+            }}
             value={mainIncome}
             onChange={handleMainIncomeChange}
             error={!!mainIncomeError}
@@ -75,6 +84,9 @@ const Income = () => {
             label="Дополнительный доход"
             placeholder="Инвестиции, аренда и т.д."
             variant="outlined"
+            InputProps={{
+              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+            }}
             value={extraIncome}
             onChange={handleExtraIncomeChange}
             error={!!extraIncomeError}

@@ -7,6 +7,7 @@ import {
   Select,
   MenuItem,
   Grid,
+  InputAdornment,
 } from "@mui/material";
 
 const Purposes = () => {
@@ -22,6 +23,9 @@ const Purposes = () => {
             label="Сумма для накопления"
             placeholder="Сколько хотите накопить"
             variant="outlined"
+            InputProps={{
+              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+            }}
           />
         </Grid>
         <Grid size={6}>
