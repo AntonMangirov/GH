@@ -69,7 +69,9 @@ const Income = () => {
             placeholder="Зарплата, пенсия"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={mainIncome}
             onChange={handleMainIncomeChange}
@@ -85,7 +87,9 @@ const Income = () => {
             placeholder="Инвестиции, аренда и т.д."
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
             value={extraIncome}
             onChange={handleExtraIncomeChange}

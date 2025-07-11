@@ -24,7 +24,9 @@ const Purposes = () => {
             placeholder="Сколько хотите накопить"
             variant="outlined"
             InputProps={{
-              endAdornment: <InputAdornment position="end">руб</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
+              ),
             }}
           />
         </Grid>
