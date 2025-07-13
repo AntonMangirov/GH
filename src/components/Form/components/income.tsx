@@ -9,17 +9,16 @@ const Income = () => {
   const [mainIncomeError, setMainIncomeError] = useState("");
   const [extraIncomeError, setExtraIncomeError] = useState("");
 
-  const handleMainIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setMainIncome(value);
-    validate(value, setMainIncomeError, true);
-  };
-
-  const handleExtraIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setExtraIncome(value);
-    validate(value, setExtraIncomeError);
-  };
+  const handleChange =
+    (
+      setter: React.Dispatch<React.SetStateAction<string>>,
+      errorSetter: React.Dispatch<React.SetStateAction<string>>
+    ) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setter(value);
+      validate(value, errorSetter);
+    };
 
   return (
     <FormSection title="Доходы">
@@ -27,7 +26,7 @@ const Income = () => {
         label="Основной доход"
         placeholder="Зарплата, пенсия"
         value={mainIncome}
-        onChange={handleMainIncomeChange}
+        onChange={handleChange(setMainIncome, setMainIncomeError)}
         error={mainIncomeError}
         required
       />
@@ -35,7 +34,7 @@ const Income = () => {
         label="Дополнительный доход"
         placeholder="Инвестиции, аренда и т.д."
         value={extraIncome}
-        onChange={handleExtraIncomeChange}
+        onChange={handleChange(setExtraIncome, setExtraIncomeError)}
         error={extraIncomeError}
       />
     </FormSection>
