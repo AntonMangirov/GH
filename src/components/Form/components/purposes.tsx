@@ -1,15 +1,14 @@
 import {
   Paper,
   Typography,
-  TextField,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
   Grid,
-  InputAdornment,
 } from "@mui/material";
 import React, { useState } from "react";
+import CurrencyInput from "../../Common/CurrencyInput";
 import validate from "../../../Utils/validation";
 
 const Purposes = () => {
@@ -28,24 +27,14 @@ const Purposes = () => {
         Цель накоплений
       </Typography>
       <Grid container spacing={1}>
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Сумма для накопления"
-            placeholder="Сколько хотите накопить"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={purpose}
-            onChange={handlePurposeChange}
-            error={!!purposeError}
-            helperText={purposeError}
-            required
-          />
-        </Grid>
+        <CurrencyInput
+          label="Сумма для накопления"
+          placeholder="Сколько хотите накопить"
+          value={purpose}
+          onChange={handlePurposeChange}
+          error={purposeError}
+          required
+        />
         <Grid size={6}>
           <FormControl fullWidth>
             <InputLabel>Срок накопления</InputLabel>
