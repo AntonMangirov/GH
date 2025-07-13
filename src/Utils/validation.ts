@@ -13,6 +13,11 @@ const validate = (
     return false;
   }
 
+  if (!/^\d*([.,]\d{0,2})?$/.test(value)) {
+    setError("макс. 2 знака после запятой");
+    return false;
+  }
+
   if (Number(value) < 0) {
     setError("Не может быть отрицательным");
     return false;
