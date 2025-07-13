@@ -1,11 +1,6 @@
-import {
-  Paper,
-  Typography,
-  TextField,
-  Grid,
-  InputAdornment,
-} from "@mui/material";
-import React, { useState } from "react";
+import { Paper, Typography, Grid } from "@mui/material";
+import { useState } from "react";
+import CurrencyInput from "../../Common/CurrencyInput";
 import validate from "../../../Utils/validation";
 
 const Income = () => {
@@ -33,41 +28,21 @@ const Income = () => {
       </Typography>
 
       <Grid container spacing={1}>
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Основной доход"
-            placeholder="Зарплата, пенсия"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={mainIncome}
-            onChange={handleMainIncomeChange}
-            error={!!mainIncomeError}
-            helperText={mainIncomeError}
-            required
-          />
-        </Grid>
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Дополнительный доход"
-            placeholder="Инвестиции, аренда и т.д."
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={extraIncome}
-            onChange={handleExtraIncomeChange}
-            error={!!extraIncomeError}
-            helperText={extraIncomeError}
-          />
-        </Grid>
+        <CurrencyInput
+          label="Основной доход"
+          placeholder="Зарплата, пенсия"
+          value={mainIncome}
+          onChange={handleMainIncomeChange}
+          error={mainIncomeError}
+          required
+        />
+        <CurrencyInput
+          label="Дополнительный доход"
+          placeholder="Инвестиции, аренда и т.д."
+          value={extraIncome}
+          onChange={handleExtraIncomeChange}
+          error={extraIncomeError}
+        />
       </Grid>
     </Paper>
   );

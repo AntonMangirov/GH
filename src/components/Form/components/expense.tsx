@@ -1,11 +1,6 @@
-import {
-  Paper,
-  Typography,
-  TextField,
-  Grid,
-  InputAdornment,
-} from "@mui/material";
+import { Paper, Typography, Grid } from "@mui/material";
 import React, { useState } from "react";
+import CurrencyInput from "../../Common/CurrencyInput";
 import validate from "../../../Utils/validation";
 
 const Expense = () => {
@@ -23,43 +18,16 @@ const Expense = () => {
   const [entertainmentError, setEntertainmentError] = useState("");
   const [otherError, setOtherError] = useState("");
 
-  const handleHousingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setHousing(value);
-    validate(value, setHousingError);
-  };
-
-  const handleFoodChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setFood(value);
-    validate(value, setFoodError);
-  };
-
-  const handleTransportChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setTransport(value);
-    validate(value, setTransportError);
-  };
-
-  const handleHealthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setHealth(value);
-    validate(value, setHealthError);
-  };
-
-  const handleEntertainmentChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value;
-    setEntertainment(value);
-    validate(value, setEntertainmentError);
-  };
-
-  const handleOtherChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setOther(value);
-    validate(value, setOtherError);
-  };
+  const handleChange =
+    (
+      setter: React.Dispatch<React.SetStateAction<string>>,
+      errorSetter: React.Dispatch<React.SetStateAction<string>>
+    ) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setter(value);
+      validate(value, errorSetter);
+    };
 
   return (
     <Paper elevation={5} sx={{ p: 3, mb: 3 }}>
@@ -67,113 +35,49 @@ const Expense = () => {
         Ежемесячные расходы
       </Typography>
       <Grid container spacing={1}>
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Жилье"
-            placeholder="Аренда, ипотека, коммунальные"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={housing}
-            onChange={handleHousingChange}
-            error={!!housingError}
-            helperText={housingError}
-          />
-        </Grid>
+        <CurrencyInput
+          label="Жилье"
+          placeholder="Аренда, ипотека, коммунальные"
+          value={housing}
+          onChange={handleChange(setHousing, setHousingError)}
+          error={housingError}
+        />
 
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Питание"
-            placeholder="Продукты, рестораны"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={food}
-            onChange={handleFoodChange}
-            error={!!foodError}
-            helperText={foodError}
-          />
-        </Grid>
-
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Транспорт"
-            placeholder="Бензин, общественный транспорт"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={transport}
-            onChange={handleTransportChange}
-            error={!!transportError}
-            helperText={transportError}
-          />
-        </Grid>
-
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Здоровье"
-            placeholder="Медицина, фитнес, аптека"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={health}
-            onChange={handleHealthChange}
-            error={!!healthError}
-            helperText={healthError}
-          />
-        </Grid>
-
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Развлечения"
-            placeholder="Кино, хобби, подписки"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={entertainment}
-            onChange={handleEntertainmentChange}
-            error={!!entertainmentError}
-            helperText={entertainmentError}
-          />
-        </Grid>
-
-        <Grid size={6}>
-          <TextField
-            fullWidth
-            label="Другие расходы"
-            placeholder="Одежда, подарки, прочее"
-            variant="outlined"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">{"\u20BD"}</InputAdornment>
-              ),
-            }}
-            value={other}
-            onChange={handleOtherChange}
-            error={!!otherError}
-            helperText={otherError}
-          />
-        </Grid>
+        <CurrencyInput
+          label="Питание"
+          placeholder="Продукты, рестораны"
+          value={food}
+          onChange={handleChange(setFood, setFoodError)}
+          error={foodError}
+        />
+        <CurrencyInput
+          label="Транспорт"
+          placeholder="Бензин, общественный транспорт"
+          value={transport}
+          onChange={handleChange(setTransport, setTransportError)}
+          error={transportError}
+        />
+        <CurrencyInput
+          label="Здоровье"
+          placeholder="Медицина, фитнес, аптека"
+          value={health}
+          onChange={handleChange(setHealth, setHealthError)}
+          error={healthError}
+        />
+        <CurrencyInput
+          label="Развлечения"
+          placeholder="Кино, хобби, подписки"
+          value={entertainment}
+          onChange={handleChange(setEntertainment, setEntertainmentError)}
+          error={entertainmentError}
+        />
+        <CurrencyInput
+          label="Другие расходы"
+          placeholder="Одежда, подарки, прочее"
+          value={other}
+          onChange={handleChange(setOther, setOtherError)}
+          error={otherError}
+        />
       </Grid>
     </Paper>
   );
