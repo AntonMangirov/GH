@@ -1,9 +1,9 @@
-import { Link } from "react-router";
-import { Typography, List, ListItem, Button, Container } from "@mui/material";
+import { Link as RouterLink } from "react-router";
+import { Typography, List, ListItem, Link, Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Container>
+    <Container maxWidth="md">
       <Typography variant="body1">
         Умный анализ ваших доходов и расходов. Получайте персонализированные
         рекомендации по оптимизации бюджета с помощью искусственного интеллекта.
@@ -15,14 +15,9 @@ const Home = () => {
         <ListItem>Рекомендации по экономии</ListItem>
       </List>
 
-      <Button
-        component={Link}
-        to="/form"
-        variant="contained"
-        sx={{ marginTop: "16px" }}
-      >
+      <Link component={RouterLink} to="/form" variant="h6" underline="hover">
         Начать планирование
-      </Button>
+      </Link>
     </Container>
   );
 };
