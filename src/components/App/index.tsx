@@ -1,11 +1,14 @@
 import AppLayout from "./AppLayout";
 import Routes from "../../routes";
+import { FormProvider } from "../Form/FormContext";
 
 const App = () => {
   return (
-    <AppLayout>
-      <Routes />
-    </AppLayout>
+    <FormProvider>
+      <AppLayout>
+        <Routes />
+      </AppLayout>
+    </FormProvider>
   );
 };
 

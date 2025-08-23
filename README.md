@@ -1,61 +1,67 @@
-# React + TypeScript + Vite
+# FinancePlanner AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Простое приложение для финансового планирования с использованием React, TypeScript и Material-UI.
 
-Currently, two official plugins are available:
+## Функциональность
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📊 Анализ доходов и расходов
+- 🎯 Расчет ежемесячных сбережений
+- 📈 Визуализация динамики накоплений
+- 🤖 Интеграция с OpenAI API (с fallback на локальные расчеты)
+- 💡 Персонализированные рекомендации
 
-## Expanding the ESLint configuration
+## Технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18
+- TypeScript
+- Material-UI
+- React Router
+- Recharts (для графиков)
+- OpenAI API
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## Структура проекта
+
+```
+src/
+├── components/
+│   ├── App/          # Главный компонент приложения
+│   ├── Common/       # Общие компоненты (LoadingOverlay, AnalysisResult)
+│   ├── Form/         # Формы ввода данных
+│   ├── Header/       # Шапка сайта
+│   ├── Home/         # Главная страница
+│   └── Results/      # Страница результатов
+├── Utils/
+│   └── openaiService.ts  # Сервис для работы с AI
+└── routes.tsx        # Маршрутизация
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Установка и запуск
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+1. Установите зависимости:
+```bash
+npm install
 ```
 
-rules: {
-// other rules...
-// Enable its recommended typescript rules
-...reactX.configs['recommended-typescript'].rules,
-...reactDom.configs.recommended.rules,
-}
+2. Создайте файл `.env` с API ключом OpenAI:
+```
+VITE_OPENAI_API_KEY=your-api-key-here
+```
+
+3. Запустите проект:
+```bash
+npm run dev
+```
+
+## Особенности реализации
+
+- **Простая архитектура**: подходит для мидл-разработчика
+- **Fallback система**: работает даже без AI
+- **Адаптивный дизайн**: корректно отображается на всех устройствах
+- **TypeScript**: типизация для надежности кода
+
+## Время разработки
+
+Для мидл-разработчика с опытом React/TypeScript:
+- **Базовая версия**: 2-3 дня
+- **С AI интеграцией**: 4-5 дней
+- **Полная версия с графиками**: 5-7 дней

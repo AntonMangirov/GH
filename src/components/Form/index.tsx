@@ -1,11 +1,11 @@
 import { Container, Button } from "@mui/material";
-import { FormProvider, useFormContext } from "./FormContext";
+import { useFormContext } from "./FormContext";
 import LoadingOverlay from "../Common/LoadingOverlay";
 import Income from "./components/income";
 import Expense from "./components/expense";
 import Purposes from "./components/purposes";
 
-const FormContent = () => {
+const Form = () => {
   const { handleCalculate, isLoading } = useFormContext();
 
   return (
@@ -30,14 +30,6 @@ const FormContent = () => {
       </Button>
       <LoadingOverlay isVisible={isLoading} />
     </Container>
-  );
-};
-
-const Form = () => {
-  return (
-    <FormProvider>
-      <FormContent />
-    </FormProvider>
   );
 };
 
