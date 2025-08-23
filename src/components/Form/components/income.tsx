@@ -2,21 +2,21 @@ import { useState } from "react";
 import CurrencyInput from "../../Common/CurrencyInput";
 import FormSection from "../../Common/FormSection";
 import validate from "../../../Utils/validation";
+import { useFormContext } from "../FormContext";
 
 const Income = () => {
-  const [mainIncome, setMainIncome] = useState("");
-  const [extraIncome, setExtraIncome] = useState("");
+  const { formData, setFormData } = useFormContext();
   const [mainIncomeError, setMainIncomeError] = useState("");
   const [extraIncomeError, setExtraIncomeError] = useState("");
 
   const handleChange =
     (
-      setter: React.Dispatch<React.SetStateAction<string>>,
+      field: keyof typeof formData,
       errorSetter: React.Dispatch<React.SetStateAction<string>>
     ) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      setter(value);
+      setFormData(prev => ({ ...prev, [field]: value }));
       validate(value, errorSetter);
     };
 
@@ -25,16 +25,16 @@ const Income = () => {
       <CurrencyInput
         label="Основной доход"
         placeholder="Зарплата, пенсия"
-        value={mainIncome}
-        onChange={handleChange(setMainIncome, setMainIncomeError)}
+        value={formData.mainIncome}
+        onChange={handleChange('mainIncome', setMainIncomeError)}
         error={mainIncomeError}
         required
       />
       <CurrencyInput
         label="Дополнительный доход"
         placeholder="Инвестиции, аренда и т.д."
-        value={extraIncome}
-        onChange={handleChange(setExtraIncome, setExtraIncomeError)}
+        value={formData.extraIncome}
+        onChange={handleChange('extraIncome', setExtraIncomeError)}
         error={extraIncomeError}
       />
     </FormSection>
