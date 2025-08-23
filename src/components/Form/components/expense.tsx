@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import CurrencyInput from "../../Common/CurrencyInput";
 import FormSection from "../../Common/FormSection";
 import validate from "../../../Utils/validation";
+import { useFormContext } from "../FormContext";
 
 const Expense = () => {
-  const [housing, setHousing] = useState("");
-  const [food, setFood] = useState("");
-  const [transport, setTransport] = useState("");
-  const [health, setHealth] = useState("");
-  const [entertainment, setEntertainment] = useState("");
-  const [other, setOther] = useState("");
-
+  const { formData, setFormData } = useFormContext();
   const [housingError, setHousingError] = useState("");
   const [foodError, setFoodError] = useState("");
   const [transportError, setTransportError] = useState("");
@@ -20,12 +15,12 @@ const Expense = () => {
 
   const handleChange =
     (
-      setter: React.Dispatch<React.SetStateAction<string>>,
+      field: keyof typeof formData,
       errorSetter: React.Dispatch<React.SetStateAction<string>>
     ) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      setter(value);
+      setFormData(prev => ({ ...prev, [field]: value }));
       validate(value, errorSetter);
     };
 
@@ -34,44 +29,44 @@ const Expense = () => {
       <CurrencyInput
         label="Жилье"
         placeholder="Аренда, ипотека, коммунальные"
-        value={housing}
-        onChange={handleChange(setHousing, setHousingError)}
+        value={formData.housing}
+        onChange={handleChange('housing', setHousingError)}
         error={housingError}
       />
 
       <CurrencyInput
         label="Питание"
         placeholder="Продукты, рестораны"
-        value={food}
-        onChange={handleChange(setFood, setFoodError)}
+        value={formData.food}
+        onChange={handleChange('food', setFoodError)}
         error={foodError}
       />
       <CurrencyInput
         label="Транспорт"
         placeholder="Бензин, общественный транспорт"
-        value={transport}
-        onChange={handleChange(setTransport, setTransportError)}
+        value={formData.transport}
+        onChange={handleChange('transport', setTransportError)}
         error={transportError}
       />
       <CurrencyInput
         label="Здоровье"
         placeholder="Медицина, фитнес, аптека"
-        value={health}
-        onChange={handleChange(setHealth, setHealthError)}
+        value={formData.health}
+        onChange={handleChange('health', setHealthError)}
         error={healthError}
       />
       <CurrencyInput
         label="Развлечения"
         placeholder="Кино, хобби, подписки"
-        value={entertainment}
-        onChange={handleChange(setEntertainment, setEntertainmentError)}
+        value={formData.entertainment}
+        onChange={handleChange('entertainment', setEntertainmentError)}
         error={entertainmentError}
       />
       <CurrencyInput
         label="Другие расходы"
         placeholder="Одежда, подарки, прочее"
-        value={other}
-        onChange={handleChange(setOther, setOtherError)}
+        value={formData.other}
+        onChange={handleChange('other', setOtherError)}
         error={otherError}
       />
     </FormSection>
