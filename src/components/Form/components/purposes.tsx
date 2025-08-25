@@ -11,12 +11,12 @@ const Purposes = () => {
 
   const handlePurposeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setFormData(prev => ({ ...prev, purpose: value }));
+    setFormData((prev) => ({ ...prev, purpose: value }));
     validate(value, setPurposeError, true);
   };
 
   const handleTimeframeChange = (e: any) => {
-    setFormData(prev => ({ ...prev, timeframe: e.target.value }));
+    setFormData((prev) => ({ ...prev, timeframe: e.target.value }));
   };
 
   return (
@@ -32,8 +32,8 @@ const Purposes = () => {
       <Grid size={6}>
         <FormControl fullWidth>
           <InputLabel>Срок накопления</InputLabel>
-          <Select 
-            label="Срок накопления" 
+          <Select
+            label="Срок накопления"
             value={formData.timeframe}
             onChange={handleTimeframeChange}
           >

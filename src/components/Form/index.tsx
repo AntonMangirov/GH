@@ -13,16 +13,16 @@ const Form = () => {
       <Income />
       <Expense />
       <Purposes />
-      <Button 
-        variant="contained" 
-        size="large" 
+      <Button
+        variant="contained"
+        size="large"
         onClick={handleCalculate}
-        sx={{ 
-          mt: 3, 
+        sx={{
+          mt: 3,
           mb: 4,
           py: 1.5,
           px: 4,
-          fontSize: '1.1rem',
+          fontSize: "1.1rem",
           fontWeight: 600,
         }}
       >

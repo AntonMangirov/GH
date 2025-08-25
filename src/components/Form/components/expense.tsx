@@ -20,7 +20,7 @@ const Expense = () => {
     ) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      setFormData(prev => ({ ...prev, [field]: value }));
+      setFormData((prev) => ({ ...prev, [field]: value }));
       validate(value, errorSetter);
     };
 
@@ -30,7 +30,7 @@ const Expense = () => {
         label="Жилье"
         placeholder="Аренда, ипотека, коммунальные"
         value={formData.housing}
-        onChange={handleChange('housing', setHousingError)}
+        onChange={handleChange("housing", setHousingError)}
         error={housingError}
       />
 
@@ -38,35 +38,35 @@ const Expense = () => {
         label="Питание"
         placeholder="Продукты, рестораны"
         value={formData.food}
-        onChange={handleChange('food', setFoodError)}
+        onChange={handleChange("food", setFoodError)}
         error={foodError}
       />
       <CurrencyInput
         label="Транспорт"
         placeholder="Бензин, общественный транспорт"
         value={formData.transport}
-        onChange={handleChange('transport', setTransportError)}
+        onChange={handleChange("transport", setTransportError)}
         error={transportError}
       />
       <CurrencyInput
         label="Здоровье"
         placeholder="Медицина, фитнес, аптека"
         value={formData.health}
-        onChange={handleChange('health', setHealthError)}
+        onChange={handleChange("health", setHealthError)}
         error={healthError}
       />
       <CurrencyInput
         label="Развлечения"
         placeholder="Кино, хобби, подписки"
         value={formData.entertainment}
-        onChange={handleChange('entertainment', setEntertainmentError)}
+        onChange={handleChange("entertainment", setEntertainmentError)}
         error={entertainmentError}
       />
       <CurrencyInput
         label="Другие расходы"
         placeholder="Одежда, подарки, прочее"
         value={formData.other}
-        onChange={handleChange('other', setOtherError)}
+        onChange={handleChange("other", setOtherError)}
         error={otherError}
       />
     </FormSection>

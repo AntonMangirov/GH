@@ -6,17 +6,17 @@ const Header = () => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Typography 
-          variant="h4" 
+        <Typography
+          variant="h4"
           component={RouterLink}
           to="/"
-          sx={{ 
-            textDecoration: 'none', 
-            color: 'inherit',
-            cursor: 'pointer',
-            '&:hover': {
-              opacity: 0.8
-            }
+          sx={{
+            textDecoration: "none",
+            color: "inherit",
+            cursor: "pointer",
+            "&:hover": {
+              opacity: 0.8,
+            },
           }}
         >
           FinancePlanner AI

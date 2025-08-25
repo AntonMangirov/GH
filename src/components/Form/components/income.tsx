@@ -16,7 +16,7 @@ const Income = () => {
     ) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      setFormData(prev => ({ ...prev, [field]: value }));
+      setFormData((prev) => ({ ...prev, [field]: value }));
       validate(value, errorSetter);
     };
 
@@ -26,7 +26,7 @@ const Income = () => {
         label="Основной доход"
         placeholder="Зарплата, пенсия"
         value={formData.mainIncome}
-        onChange={handleChange('mainIncome', setMainIncomeError)}
+        onChange={handleChange("mainIncome", setMainIncomeError)}
         error={mainIncomeError}
         required
       />
@@ -34,7 +34,7 @@ const Income = () => {
         label="Дополнительный доход"
         placeholder="Инвестиции, аренда и т.д."
         value={formData.extraIncome}
-        onChange={handleChange('extraIncome', setExtraIncomeError)}
+        onChange={handleChange("extraIncome", setExtraIncomeError)}
         error={extraIncomeError}
       />
     </FormSection>
